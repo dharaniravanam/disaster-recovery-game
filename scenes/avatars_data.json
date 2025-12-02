@@ -1,70 +1,75 @@
 [
     {
         "id": "Jenna",
-        "name": "Mayor Jenna",
+        "name": "Mayor Jenna Whitmore",
         "role": "Mayor",
-        "description": "Focused on revitalizing the local economy and government services.",
+        "description": "Jenna has served as Bridgewater’s mayor for 6 years. She is deeply concerned with restarting the local economy and ensuring government services are functioning. Practical and politically savvy, Jenna often balances public perception with actual recovery needs. She is focused on allocating limited resources efficiently but can be swayed by political pressures or influential community members. She’s under immense pressure from business owners and state officials to reopen the town quickly, but she’s also aware that mismanaging limited resources could worsen the crisis. She tends to frame every issue as a matter of public image and infrastructure, revealing her political side — confident but careful about what she discloses.",
         "questions": [
-            {
-                "question": "Given our limited budget, what would you prioritize for immediate repair?",
-                "answer": "Our top priority should be to clear the main roads as soon as possible. These routes are essential for getting emergency supplies and aid workers into the town and for allowing residents to access essential services. Additionally, restoring power to emergency centers is critical for medical and communication needs."
-            },
             {
                 "question": "With the risk of future storms, what's a top resilience investment?",
                 "answer": "Investing in flood barriers around key infrastructure and strengthening the town's power grid by reinforcing poles, upgrading transformers, and installing backup generators."
             },
             {
-                "question": "Have you attended any recent conferences?",
-                "answer": "Yes, I attended an urban planning conference last month, focusing on disaster response, resilience strategies, and eco-friendly infrastructure."
+                "question": "Have you heard anything promising from the state officials about emergency funding?",
+                "answer": "They have promised quick aid, but they are still reviewing paperwork. If we show the towns back in business soon, maybe we will move up their list. I’m thinking of repainting a few public buildings just to boost morale — appearances matter right now."
+            },
+            {
+                "question": "Given our limited budget, what would you prioritize for immediate repair?",
+                "answer": "Our top priority should be to clear the main roads as soon as possible. These routes are essential for getting emergency supplies and aid workers into the town and for allowing residents to access essential services. Additionally, restoring power to emergency centers is critical for medical and communication needs."
             }
         ]
     },
     {
         "id": "George",
-        "name": "George",
+        "name": "George Sullivan",
         "role": "School Principal",
-        "description": "Committed to reopening schools and ensuring safe access to education for children.",
+        "description": "George has led Bridgewater High School for over a decade and cares passionately about his students' safety and education. In the aftermath of the storm, he prioritizes reopening schools quickly, ensuring safe transportation routes, and supporting teachers and staff. He is passionate about safety and preparedness but sometimes overly optimistic about bureaucratic help. He has a practical understanding of logistics, especially how road access and infrastructure directly affect education continuity.",
         "questions": [
-            {
-                "question": "What should we prioritize to get students back in school quickly?",
-                "answer": "Repairing water damage in classrooms and clearing main roads to enable bus routes to resume safely."
-            },
             {
                 "question": "What long-term improvements should we consider for school safety?",
                 "answer": "Reinforcing school buildings with stronger materials and creating an emergency supply room stocked with essentials."
             },
             {
-                "question": "What's your favorite book genre?",
-                "answer": "Historical fiction, as it inspires resilience and provides perspective through stories from the past."
+                "question": "What should we prioritize to get students back in school quickly?",
+                "answer": "Repairing water damage in classrooms and clearing main roads to enable bus routes to resume safely."
+            },
+            {
+                "question": "Have you spoken with the mayor about allocating the budget for schools yet?",
+                "answer": "Not yet — I heard she is focused on repainting municipal buildings to make the town look presentable for state inspectors. I suppose that is her way of boosting morale, but honestly, I would rather see the money go toward classroom repairs."
             }
         ]
     },
     {
         "id": "Jamal",
-        "name": "Jamal",
+        "name": "Jamal Khan",
         "role": "Factory Owner",
-        "description": "Advocates for restoring power and transportation to revive the industrial sector.",
+        "description": "Jamal owns the town’s main manufacturing plant. He is focused on restoring power and transportation to get his factory operational and revive the industrial sector. Driven by profit but aware of his role in the local economy, Jamal may exaggerate the importance of industry recovery over other priorities. He is politically aware and sometimes attempts to influence town decisions to benefit the factory.",
         "questions": [
-            {
-                "question": "What's the first thing we should fix to get the factory back up and running?",
-                "answer": "Restoring power to the factory is the most urgent need, followed by clearing debris and ensuring supply chain routes are accessible."
-            },
+            
             {
                 "question": "How can we prevent future disruptions to the factory from future storms?",
                 "answer": "Reinforcing the building's structure, investing in backup generators, and creating a flood barrier around the factory."
             },
             {
                 "question": "Are there plans for expanding the factory soon?",
-                "answer": "Not currently; the focus is on rebuilding and restoring what we already have before considering expansion."
+                "answer": "Actually, I have been thinking about it! If we show progress fast — maybe put up some new signage or even add an extension — we could attract new investors. It'd make the town look like it is thriving again. The mayor would love that optics win."
+            },
+            {
+                "question": "What's the first thing we should fix to get the factory back up and running?",
+                "answer": "Restoring power to the factory is the most urgent need, followed by clearing debris and ensuring supply chain routes are accessible."
             }
         ]
     },
     {
         "id": "Maria",
-        "name": "Maria",
-        "role": "Community Leader",
-        "description": "Prioritizes healthcare and shelter for the elderly and vulnerable populations.",
+        "name": "Maria Gonzalez",
+        "role": "Retired Community Leader",
+        "description":"Maria has been a pillar of Bridgewater for decades, advocating for the elderly and vulnerable populations. In the wake of the storm, she emphasizes the need for healthcare, safe shelters, and critical services. Widely respected but sometimes dismissed by younger officials as “too sentimental,” Maria understands that compassion means logistics, not just emotion. She has deep ties to the elderly and disabled residents, many of whom rely on her to voice their needs when no one else will.",
         "questions": [
+            {
+                "question": "Have you considered hosting a town-wide event to lift people's spirits during the recovery?",
+                "answer": "Oh, I love that idea, but I’m afraid it’s not realistic right now. Some folks would enjoy a celebration, but many still don’t have working kitchens or safe homes. Maybe the mayor would like a photo opportunity like that, but I think our energy’s better spent elsewhere."
+            },
             {
                 "question": "How can we support elderly and vulnerable community members in need?",
                 "answer": "Restoring power to senior housing, ensuring functional heating and cooling systems, and providing backup generators for critical care facilities."
@@ -72,50 +77,46 @@
             {
                 "question": "How can we address the needs of other vulnerable populations, such as the disabled or low-income families?",
                 "answer": "Prioritizing accessible shelters for people with disabilities and providing financial aid or food assistance to low-income families."
-            },
-            {
-                "question": "Have you considered hosting a town-wide event to lift people's spirits during the recovery?",
-                "answer": "Yes, hosting a concert or fair could strengthen morale once the situation stabilizes."
             }
         ]
     },
     {
         "id": "Dorian",
         "name": "Dorian Parker",
-        "role": "Parent",
-        "description": "Concentrated on family safety and restoring housing, schools, and community centers.",
+        "role": "Parent and Community Volunteer",
+        "description": "Dorian is a local parent who has been actively volunteering in community recovery efforts for years. His priorities are centered on family safety, housing restoration, school access, and community centers. While well-intentioned, Dorian’s perspective can clash with larger-scale economic or industrial recovery efforts, as he often advocates for immediate relief over long-term planning.",
         "questions": [
             {
                 "question": "What is your biggest concern as a parent during the recovery?",
                 "answer": "Ensuring a safe place for children to live, access to care, and support for their mental and emotional well-being."
             },
             {
-                "question": "How can we make the community safe for families?",
-                "answer": "Restoring essential services, rebuilding safe housing, clearing public spaces, and providing mental health support."
+                "question": "Would hosting a big town fundraiser or recovery fair help speed things up?",
+                "answer": "Honestly, a fair would make people feel hopeful and could bring in donations. Imagine booths, music, a bake sale! It would lift spirits and maybe even get local businesses to chip in.. It won’t fix the roads by itself, but it feels like doing something visible for the town."
             },
             {
-                "question": "How do you usually spend your weekends?",
-                "answer": "Hiking with my kids, but currently focusing on recovery efforts and finding a safe place to live."
+                "question": "How can we make the community safe for families?",
+                "answer": "Restoring essential services, rebuilding safe housing, clearing public spaces, and providing mental health support."
             }
         ]
     },
     {
         "id": "Claire",
-        "name": "Claire",
+        "name": "Claire Bennett",
         "role": "Restaurant Owner",
-        "description": "Stressed by business closures and seeks quick reopening of small businesses and restoration of clean water and food distribution.",
+        "description": "Claire runs a popular local restaurant and is deeply concerned about reopening small businesses. She prioritizes restoring clean water, food distribution, and employee livelihoods. Practical and resourceful, she’s acutely aware that restaurants can only reopen when infrastructure and supply chains are restored. She tends to focus on visible progress, which makes her answers a mix of practical advice and subtle temptation toward less critical actions.",
         "questions": [
-            {
-                "question": "What infrastructure is needed for restaurants to reopen?",
-                "answer": "Restoring power and water supply, clearing debris, and fixing structural damage to ensure safety."
-            },
             {
                 "question": "What can we do to help ensure there's a steady food supply for the community during recovery?",
                 "answer": "Restoring supply chain routes and establishing temporary food distribution points."
             },
             {
-                "question": "Have you thought about offering a new special on your menu to attract customers once you reopen?",
-                "answer": "Yes, but only after ensuring the restaurant is operational and community needs are met."
+                "question": "Which promotional strategies could help the town feel like life is returning to normal?",
+                "answer": "Maybe we run a soft opening with some specials, or set up a small community tasting. People will see businesses reopening and feel hopeful. It gives the impression that progress is happening!"
+            },
+            {
+                "question": "What infrastructure is needed for restaurants to reopen?",
+                "answer": "Restoring power and water supply, clearing debris, and fixing structural damage to ensure safety."
             }
         ]
     },
@@ -123,28 +124,35 @@
         "id": "Liam",
         "name": "Liam Moore",
         "role": "Police Officer",
-        "description": "Focused on public safety, law enforcement, and restoring roads and communication for emergency services.",
+        "description": "Liam is calm, level-headed, and committed to public safety. He emphasizes restoring law enforcement capabilities, clearing roads, and re-establishing communication networks. Liam is also concerned about preventing crime in vulnerable areas. He’s practical and observant, often noticing vulnerabilities others overlook.",
         "questions": [
-            {
-                "question": "What should we prioritize to ensure public safety as we begin the recovery?",
-                "answer": "Restoring roads and communication networks, securing essential infrastructure, and patrolling neighborhoods to prevent looting."
-            },
             {
                 "question": "What additional support do you need to maintain security and assist with recovery efforts?",
                 "answer": "More manpower, resources, cleared debris, and coordination with national agencies."
             },
             {
-                "question": "Do you have any favorite hobbies outside of work?",
-                "answer": "Reading mystery novels and watching detective shows, though the focus is currently on recovery efforts."
+                "question": "What should we prioritize to ensure public safety as we begin the recovery?",
+                "answer": "Restoring roads and communication networks, securing essential infrastructure, and patrolling neighborhoods to prevent looting."
+            },
+            {
+                "question": "Should we focus more on visible patrols to reassure the town?",
+                "answer": "Extra patrols make people feel safer, and we might catch some small thefts, but I’m not too sure if it will help families get food, or protect supplies."
             }
+
+            
         ]
     },
     {
         "id": "Owen",
         "name": "Owen Harper",
         "role": "Farmer",
-        "description": "Advocates for repairing rural infrastructure to restore agricultural production and ensure food security.",
+        "description": "Owen is a lifelong farmer responsible for much of Bridgewater’s agricultural output. His priorities are repairing rural roads, bridges, and farmland to ensure food distribution and long-term survival. He’s pragmatic, resilient, and deeply invested in keeping the town fed. After the hurricane, he’s focused on restoring agricultural production and food distribution. Owen understands logistics — roads, irrigation, storage — and knows that rebuilding farms alone isn’t enough without infrastructure and planning.",
         "questions": [
+ 
+            {
+                "question": "Should we focus on planting more cash crops this season to boost the local economy?",
+                "answer": "Well, I guess if the town sees tidy, painted barns and freshly plowed fields, it looks like things are moving forward. People might feel hopeful, and it could attract outside attention or investors."
+            },
             {
                 "question": "What is the most urgent need for the agricultural community?",
                 "answer": "Restoring access to water and repairing irrigation systems, along with clearing roads for supplies and transportation."
@@ -152,10 +160,6 @@
             {
                 "question": "What long-term improvements should we consider for agricultural resilience?",
                 "answer": "Investing in flood protection, strengthening irrigation systems, and diversifying crop types."
-            },
-            {
-                "question": "What's your favorite type of animal to raise on the farm?",
-                "answer": "Cows for dairy, though the focus is on crop restoration for now."
             }
         ]
     }

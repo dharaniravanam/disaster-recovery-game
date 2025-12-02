@@ -11,7 +11,8 @@ def resource_path(relative_path):
         # PyInstaller creates a temporary folder and stores path in _MEIPASS
         base_path = sys._MEIPASS
     except Exception:
-        base_path = os.path.abspath(".")
+        # Resolve project root (parent folder of this scenes package)
+        base_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
     return os.path.join(base_path, relative_path)
 
 # Load avatars_data.json
@@ -24,7 +25,8 @@ def load_avatar_data():
         # print(f"File exists: {os.path.exists(json_path)}")
 
         if os.path.exists(json_path):
-            with open(json_path, "r") as f:
+            # Open with UTF-8 to avoid Windows default encoding errors
+            with open(json_path, "r", encoding='utf-8') as f:
                 data = json.load(f)
                 # Print first 2 items for debugging
                 # print(f"JSON loaded successfully: {data[:2]}")
@@ -79,21 +81,21 @@ class CharactersScene:
 
         # Define hardcoded data - ALWAYS use this as a base
         self.avatar_data = [
-            {"id": "Jenna", "name": "Jenna", "role": "Mayor",
+            {"id": "Jenna", "name": "Mayor Jenna Whitmore", "role": "Mayor",
              "image": resource_path("scenes/avatars/Jenna.webp")},
-            {"id": "George", "name": "George", "role": "School Principal",
+            {"id": "George", "name": "George Sullivan", "role": "School Principal",
              "image": resource_path("scenes/avatars/George.webp")},
-            {"id": "Jamal", "name": "Jamal", "role": "Factory Owner",
+            {"id": "Jamal", "name": "Jamal Khan", "role": "Factory Owner",
              "image": resource_path("scenes/avatars/Jamal.webp")},
-            {"id": "Maria", "name": "Maria", "role": "Community Leader",
+            {"id": "Maria", "name": "Maria Gonzalez", "role": "Community Leader",
              "image": resource_path("scenes/avatars/Maria.webp")},
-            {"id": "Dorian", "name": "Dorian", "role": "Parent",
+            {"id": "Dorian", "name": "Dorian Parker", "role": "Parent",
              "image": resource_path("scenes/avatars/Dorian.webp")},
-            {"id": "Claire", "name": "Claire", "role": "Restaurant Owner",
+            {"id": "Claire", "name": "Claire Bennett", "role": "Restaurant Owner",
              "image": resource_path("scenes/avatars/Claire.webp")},
-            {"id": "Liam", "name": "Liam", "role": "Police Officer",
+            {"id": "Liam", "name": "Liam Moore", "role": "Police Officer",
              "image": resource_path("scenes/avatars/Liam.webp")},
-            {"id": "Owen", "name": "Owen", "role": "Farmer",
+            {"id": "Owen", "name": "Owen Harper", "role": "Farmer",
              "image": resource_path("scenes/avatars/Owen.webp")}
         ]
 
@@ -202,8 +204,8 @@ class CharactersScene:
     def render(self, screen):
         screen.fill(self.background_color)
 
-        # Draw question counter at the top
-        remaining_questions = 16 - self.game_state.get_selected_count()
+        # Draw question counter at the top (use dynamic max from game state)
+        remaining_questions = self.game_state.max_questions - self.game_state.get_selected_count()
         counter_text = self.counter_font.render(
             f"{remaining_questions} Questions Remaining", True, (0, 0, 0))
         counter_rect = counter_text.get_rect(
@@ -277,7 +279,7 @@ class CharactersScene:
 
         # Hint text changes based on selection count (rendered first, at the bottom position)
         hint_message = "Select characters to interview" if self.game_state.get_selected_count(
-        ) < 16 else "All questions selected"
+        ) < self.game_state.max_questions else "All questions selected"
         hint_text = hint_font.render(hint_message, True, (100, 100, 100))
         hint_rect = hint_text.get_rect(
             centerx=self.screen_width // 2,
@@ -287,7 +289,7 @@ class CharactersScene:
 
         # Description text now above hint (rendered second, at the top position)
         desc_text = desc_font.render(
-            "You can select up to 16 questions", True, (100, 100, 100))
+            f"You can select up to {self.game_state.max_questions} questions", True, (100, 100, 100))
         desc_rect = desc_text.get_rect(
             centerx=self.screen_width // 2,
             bottom=hint_rect.top - 5  # Position above the hint text with spacing

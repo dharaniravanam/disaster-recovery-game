@@ -4,13 +4,179 @@ import pygame
 import json
 
 
+# Fallback avatar data used when JSON cannot be loaded
+FALLBACK_AVATAR_DATA = [
+    {
+        "id": "Jenna",
+        "name": "Mayor Jenna Whitmore",
+        "role": "Mayor",
+        "description": "Focused on revitalizing the local economy and government services.",
+        "questions": [
+            {
+                "question": "Given our limited budget, what would you prioritize for immediate repair?",
+                "answer": "Our top priority should be to clear the main roads as soon as possible. These routes are essential for getting emergency supplies and aid workers into the town and for allowing residents to access essential services. Additionally, restoring power to emergency centers is critical for medical and communication needs."
+            },
+            {
+                "question": "With the risk of future storms, what's a top resilience investment?",
+                "answer": "Investing in flood barriers around key infrastructure and strengthening the town's power grid by reinforcing poles, upgrading transformers, and installing backup generators."
+            },
+            {
+                "question": "Have you attended any recent conferences?",
+                "answer": "Yes, I attended an urban planning conference last month, focusing on disaster response, resilience strategies, and eco-friendly infrastructure."
+            }
+        ]
+    },
+    {
+        "id": "George",
+        "name": "George Sullivan",
+        "role": "School Principal",
+        "description": "Committed to reopening schools and ensuring safe access to education for children.",
+        "questions": [
+            {
+                "question": "What should we prioritize to get students back in school quickly?",
+                "answer": "Repairing water damage in classrooms and clearing main roads to enable bus routes to resume safely."
+            },
+            {
+                "question": "What long-term improvements should we consider for school safety?",
+                "answer": "Reinforcing school buildings with stronger materials and creating an emergency supply room stocked with essentials."
+            },
+            {
+                "question": "What's your favorite book genre?",
+                "answer": "Historical fiction, as it inspires resilience and provides perspective through stories from the past."
+            }
+        ]
+    },
+    {
+        "id": "Jamal",
+        "name": "Jamal Khan",
+        "role": "Factory Owner",
+        "description": "Advocates for restoring power and transportation to revive the industrial sector.",
+        "questions": [
+            {
+                "question": "What's the first thing we should fix to get the factory back up and running?",
+                "answer": "Restoring power to the factory is the most urgent need, followed by clearing debris and ensuring supply chain routes are accessible."
+            },
+            {
+                "question": "How can we prevent future disruptions to the factory from future storms?",
+                "answer": "Reinforcing the building's structure, investing in backup generators, and creating a flood barrier around the factory."
+            },
+            {
+                "question": "Are there plans for expanding the factory soon?",
+                "answer": "Not currently; the focus is on rebuilding and restoring what we already have before considering expansion."
+            }
+        ]
+    },
+    {
+        "id": "Maria",
+        "name": "Maria Gonzalez",
+        "role": "Community Leader",
+        "description": "Prioritizes healthcare and shelter for the elderly and vulnerable populations.",
+        "questions": [
+            {
+                "question": "How can we support elderly and vulnerable community members in need?",
+                "answer": "Restoring power to senior housing, ensuring functional heating and cooling systems, and providing backup generators for critical care facilities."
+            },
+            {
+                "question": "How can we address the needs of other vulnerable populations, such as the disabled or low-income families?",
+                "answer": "Prioritizing accessible shelters for people with disabilities and providing financial aid or food assistance to low-income families."
+            },
+            {
+                "question": "Have you considered hosting a town-wide event to lift people's spirits during the recovery?",
+                "answer": "Yes, hosting a concert or fair could strengthen morale once the situation stabilizes."
+            }
+        ]
+    },
+    {
+        "id": "Dorian",
+        "name": "Dorian Parker",
+        "role": "Parent",
+        "description": "Concentrated on family safety and restoring housing, schools, and community centers.",
+        "questions": [
+            {
+                "question": "What is your biggest concern as a parent during the recovery?",
+                "answer": "Ensuring a safe place for children to live, access to care, and support for their mental and emotional well-being."
+            },
+            {
+                "question": "How can we make the community safe for families?",
+                "answer": "Restoring essential services, rebuilding safe housing, clearing public spaces, and providing mental health support."
+            },
+            {
+                "question": "How do you usually spend your weekends?",
+                "answer": "Hiking with my kids, but currently focusing on recovery efforts and finding a safe place to live."
+            }
+        ]
+    },
+    {
+        "id": "Claire",
+        "name": "Claire Bennett",
+        "role": "Restaurant Owner",
+        "description": "Stressed by business closures and seeks quick reopening of small businesses and restoration of clean water and food distribution.",
+        "questions": [
+            {
+                "question": "What infrastructure is needed for restaurants to reopen?",
+                "answer": "Restoring power and water supply, clearing debris, and fixing structural damage to ensure safety."
+            },
+            {
+                "question": "What can we do to help ensure there's a steady food supply for the community during recovery?",
+                "answer": "Restoring supply chain routes and establishing temporary food distribution points."
+            },
+            {
+                "question": "Have you thought about offering a new special on your menu to attract customers once you reopen?",
+                "answer": "Yes, but only after ensuring the restaurant is operational and community needs are met."
+            }
+        ]
+    },
+    {
+        "id": "Liam",
+        "name": "Liam Moore",
+        "role": "Police Officer",
+        "description": "Focused on public safety, law enforcement, and restoring roads and communication for emergency services.",
+        "questions": [
+            {
+                "question": "What should we prioritize to ensure public safety as we begin the recovery?",
+                "answer": "Restoring roads and communication networks, securing essential infrastructure, and patrolling neighborhoods to prevent looting."
+            },
+            {
+                "question": "What additional support do you need to maintain security and assist with recovery efforts?",
+                "answer": "More manpower, resources, cleared debris, and coordination with national agencies."
+            },
+            {
+                "question": "Do you have any favorite hobbies outside of work?",
+                "answer": "Reading mystery novels and watching detective shows, though the focus is currently on recovery efforts."
+            }
+        ]
+    },
+    {
+        "id": "Owen",
+        "name": "Owen Harper",
+        "role": "Farmer",
+        "description": "Advocates for repairing rural infrastructure to restore agricultural production and ensure food security.",
+        "questions": [
+            {
+                "question": "What is the most urgent need for the agricultural community?",
+                "answer": "Restoring access to water and repairing irrigation systems, along with clearing roads for supplies and transportation."
+            },
+            {
+                "question": "What long-term improvements should we consider for agricultural resilience?",
+                "answer": "Investing in flood protection, strengthening irrigation systems, and diversifying crop types."
+            },
+            {
+                "question": "What's your favorite type of animal to raise on the farm?",
+                "answer": "Cows for dairy, though the focus is on crop restoration for now."
+            }
+        ]
+    }
+]
+
+
 def resource_path(relative_path):
     """ Get absolute path to resource, works for dev and for PyInstaller """
     try:
         # PyInstaller creates a temporary folder and stores path in _MEIPASS
         base_path = sys._MEIPASS
     except Exception:
-        base_path = os.path.abspath(".")
+        # Use project root (parent of scenes) when running from source
+        base_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
     return os.path.join(base_path, relative_path)
 
 
@@ -97,14 +263,14 @@ class AvatarProfile:
 
         # Layout settings
         self.avatar_area = {
-            "x": 50,
+            "x": 40,
             "y": 50,
-            "width": 250,
+            "width": 400,
             "height": 400
         }
 
         self.questions_area = {
-            "x": 320,
+            "x": 420,
             "y": 50,
             "width": 430,
             "height": 500
@@ -116,12 +282,12 @@ class AvatarProfile:
         self.button_padding = 30
 
         # UI Elements
-        self.back_button = pygame.Rect(50, 500, 150, 50)
+        self.back_button = pygame.Rect(40, 590, 250, 25)
         self.back_button_color = (100, 200, 255)
         self.back_button_hover = False
 
         # Fonts
-        self.title_font = pygame.font.Font(None, 48)
+        self.title_font = pygame.font.Font(None, 32)
         self.text_font = pygame.font.Font(None, 32)
         self.question_font = pygame.font.Font(None, 24)
 
@@ -136,7 +302,7 @@ class AvatarProfile:
         self.fallback_avatar_data = [
             {
                 "id": "Jenna",
-                "name": "Mayor Jenna",
+                "name": "Mayor Jenna Whitmore",
                 "role": "Mayor",
                 "description": "Focused on revitalizing the local economy and government services.",
                 "questions": [
@@ -156,7 +322,7 @@ class AvatarProfile:
             },
             {
                 "id": "George",
-                "name": "George",
+                "name": "George Sullivan",
                 "role": "School Principal",
                 "description": "Committed to reopening schools and ensuring safe access to education for children.",
                 "questions": [
@@ -176,7 +342,7 @@ class AvatarProfile:
             },
             {
                 "id": "Jamal",
-                "name": "Jamal",
+                "name": "Jamal Khan",
                 "role": "Factory Owner",
                 "description": "Advocates for restoring power and transportation to revive the industrial sector.",
                 "questions": [
@@ -196,7 +362,7 @@ class AvatarProfile:
             },
             {
                 "id": "Maria",
-                "name": "Maria",
+                "name": "Maria Gonzalez",
                 "role": "Community Leader",
                 "description": "Prioritizes healthcare and shelter for the elderly and vulnerable populations.",
                 "questions": [
@@ -236,7 +402,7 @@ class AvatarProfile:
             },
             {
                 "id": "Claire",
-                "name": "Claire",
+                "name": "Claire Bennett",
                 "role": "Restaurant Owner",
                 "description": "Stressed by business closures and seeks quick reopening of small businesses and restoration of clean water and food distribution.",
                 "questions": [
@@ -304,7 +470,8 @@ class AvatarProfile:
             # print(f"AvatarProfile: File exists: {os.path.exists(json_path)}")
 
             if os.path.exists(json_path):
-                with open(json_path, 'r') as f:
+                # open JSON with UTF-8 to avoid Windows default encoding issues
+                with open(json_path, 'r', encoding='utf-8') as f:
                     data = json.load(f)
                     # print(f"AvatarProfile: Successfully loaded avatars_data.json")
                     return data
@@ -314,13 +481,13 @@ class AvatarProfile:
                 # print(
                 #     f"AvatarProfile: Directory contents: {os.listdir(os.path.dirname(json_path)) if os.path.exists(os.path.dirname(json_path)) else 'directory not found'}")
                 # print(f"AvatarProfile: Using fallback avatar data")
-                return self.fallback_avatar_data
+                return FALLBACK_AVATAR_DATA
         except Exception as e:
             # print(f"AvatarProfile: Error loading avatars data: {e}")
             import traceback
             traceback.print_exc()
             # print(f"AvatarProfile: Using fallback avatar data")
-            return self.fallback_avatar_data
+            return FALLBACK_AVATAR_DATA
 
     def wrap_text(self, text, font, max_width):
         words = text.split()
@@ -534,8 +701,8 @@ class AvatarProfile:
             else:
                 desc_y = name_rect.bottom + 40
 
-            # Draw questions counter
-            remaining_questions = 16 - self.game_state.get_selected_count()
+            # Draw questions counter (use dynamic max from game state)
+            remaining_questions = self.game_state.max_questions - self.game_state.get_selected_count()
             counter_text = self.text_font.render(
                 f"Questions Remaining:", True, (0, 0, 0))
             counter_value = self.text_font.render(

@@ -68,7 +68,7 @@ class DecisionDescriptionScene:
             "You haven't interviewed all community members yet! To make informed",
             "decisions about Bridgewater's recovery, you need to gather more",
             "information. Please go back to the previous screen and select all",
-            "16 interview questions to understand everyone's needs and priorities,",
+            f"{self.game_state.max_questions} interview questions to understand everyone's needs and priorities,",
             "in order to answer the following three decision making questions.",
             "",
             "Remember: Every perspective is crucial for the town's recovery."
@@ -170,10 +170,10 @@ class DecisionDescriptionScene:
 
         # Update description based on question count
         self.description_text = self.complete_description if self.game_state.get_selected_count(
-        ) >= 16 else self.incomplete_description
+        ) >= self.game_state.max_questions else self.incomplete_description
 
         # Define background colors based on completion status
-        if self.game_state.get_selected_count() >= 16:
+        if self.game_state.get_selected_count() >= self.game_state.max_questions:
             description_bg_color = (220, 255, 220)  # Light green for complete
             description_border_color = (100, 200, 100)  # Darker green border
         else:

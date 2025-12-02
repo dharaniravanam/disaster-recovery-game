@@ -19,7 +19,7 @@ class GameState:
         # Question tracking
         # Format: {(avatar_id, question_id): True}
         self.selected_questions = {}
-        self.max_questions = 16
+        self.max_questions = 12
         self.total_questions = 24
 
         # Initialize scenes dictionary

@@ -52,7 +52,7 @@ field = [[0 for i in range(W)] for j in range(H)]
 anim_count = 0
 
 bg = pygame.image.load('img/img1.webp').convert()
-game_bg = pygame.image.load('img/bg2.jpg').convert()
+game_bg = pygame.image.load('img/background2.webp').convert()
 
 main_font = pygame.font.Font('font/font.ttf', 65)
 font = pygame.font.Font('font/font.ttf', 45)
